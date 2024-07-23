@@ -1,20 +1,21 @@
 import { Card } from "./components/Card";
 import { Hero } from "./components/Hero";
 import Navbar from "./components/Navbar";
+import data from './data'
 
-export default function Ap(){
+console.log(data)
+
+const cardData = data
+export default function App(){
   return(
     <>
     <Navbar/>
-    {/* <Hero/> */}
-    <Card
-      img='katie-zaferes.png'
-      ratings='5.0'
-      reviewCount={6}
-      location= 'USA'
-      title='Life Lessons With Katie Zaferes'
-      price={136}
-      />
+    <Hero/>
+    <section className="cards--list">
+      {cardData.map((data)=>{
+        return <Card key={data.id} data={data}/>
+      })}
+    </section>
     </>
   )
 }
